@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vis Network | Data | DataSet</title>
+  <meta charset="UTF-8">
+  <script
+      type="text/javascript"
+      src="../static/vis-network.min.js"
+    ></script>
+</head>
+<body>
+  <!-- Your JavaScript code here -->
+  <script type="text/javascript">
+  
+  // convenience method to stringify a JSON object
+      function toJSON(obj) {
+        return JSON.stringify(obj, null, 4);
+      }
+      
+    //Définir les variables
+    var nodes, edges, network;
+    
+    function draw() {
+      //Créer un array avec les nodes
+      nodes = new vis.DataSet();
+      nodes.on("*", function() {
+        document.getElementById("nodes").innerText = JSON.stringify(nodes.get(), null, 4);
+      });
+      
+      //Ajoute des nodes dynamiquement en utilisant les données transmises
+      var nodesData = JSON.parse('{{ nodes | tojson | safe }}') || [];
+      for (var i = 0; i < nodesData.length; i++) {
+        nodes.add(nodesData[i]);
+      }
+      
+      //Créer un array avec les edges
+      edges = new vis.DataSet();
+      edges.on("*", function() {
+        document.getElementById("edges").innerText = JSON.stringify(edges.get(), null, 4);
+      });
+      
+      //Ajoute des nodes dynamiquement en utilisant les données transmises
+      var edgesData = JSON.parse('{{ edges | tojson | safe }}') || [];
+      for (var i = 0; i < edgesData.length; i++) {
+        edges.add(edgesData[i]);
+      }
+      
+      //Créer le réseau avec les nodes et edges
+      var container = document.getElementById("mynetwork");
+      var data = {
+        nodes: nodes,
+        edges: edges,
+      };
+      var options = {};
+      network = new vis.Network(container, data, options);
+    }
+    
+    //Appelle la fonction draw() quand la page est chargée
+    document.addEventListener("DOMContentLoaded", draw);
+  </script>
+</body>
+</html>
