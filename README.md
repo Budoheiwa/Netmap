@@ -34,11 +34,31 @@ After installing, you need to configure the **DBMS (Database Management System)*
 
 # How to use Network mapping project
 
-First you need to enable the DBMS from Neo4j Desktop interface. Then go to folder **network-mapping-neo4j**. In the terminal, use the command:
+First you need to enable the DBMS from Neo4j Desktop interface. Then go to folder **network-mapping-neo4j** and use the python script `capture.py` to sniff packets. But before that, in a terminal, use the command:
 ```
 ip a
 ifconfig
 ```
-> It allows you to see which network interfaces you want to use
+> It allows you to see which network interfaces you want to use to sniff packets in your current network.
+
+Make sure to enter your network interface in the interface list of `capture.py`.
+
+![image](https://github.com/Budoheiwa/network-mapping-neo4j/assets/156065416/6b2b7653-8dac-4e21-a452-67cd720752ac)
+To run the script, do:
+```
+sudo chmod +x capture.py
+sudo python3 capture.py
+```
+Then in `bdd_graph.py`, make sure to put the correct url link to connect to Neo4j Database and credentials for authentification.
+![image](https://github.com/Budoheiwa/network-mapping-neo4j/assets/156065416/6bdc4252-c546-40d3-8563-a65d6a1b5c1c)
+
+To run the script, do:
+```
+sudo chmod +x bdd_graph.py
+sudo python3 bdd_graph.py
+```
+
+
+
 
 
