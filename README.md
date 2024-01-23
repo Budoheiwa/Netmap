@@ -24,3 +24,7 @@ sudo usermod -aG docker $USER
 ```
 > The final thing is to **logout and in again**
 
+- Install Neo4j Graph Database Desktop [https://neo4j.com/download/](https://neo4j.com/download/)
+> For further information about how to install the software, there is a manual for each OS [neo4j-desktop-manual](https://neo4j.com/docs/desktop-manual/current/installation/download-installation/)
+
+
