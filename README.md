@@ -1,6 +1,6 @@
 # Requirements
 
-Before using the Network mapping project, you need some **requirements**:
+Before using the Netmap project, you need some **requirements**:
 - Install Kali Linux OS [https://www.kali.org/get-kali/](https://www.kali.org/get-kali/#kali-platforms).
 
 - Make sure that all is update with the command: 
